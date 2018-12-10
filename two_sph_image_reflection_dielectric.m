@@ -1,5 +1,5 @@
 
-function [energy, img_num]=two_sph_image_reflection(Q1,Q2,a1,a2,d1,d2,eps_1,eps_2)
+function [energy, img_num]=two_sph_image_reflection_dielectric(Q1,Q2,a1,a2,d1,d2,eps_1,eps_2)
 %two dielectric spheres, with central charges. 
 %Image reflection method, based on the analytical image charge solution for a single dielectric sphere.
 %The line integral of the image charge solution is discretized using the
@@ -58,7 +58,7 @@ src(1,1)=0;src(1,2)=0;src(1,3)=d1;src(1,4)=Q1;
 src(2,1)=0;src(2,2)=0;src(2,3)=-d2;src(2,4)=Q2;
 
 %%%initialize the image generation process%%%%
- nlevel=5; %image series is reflected nlevel times (higher levels are neglected)
+ nlevel=6; %image series is reflected nlevel times (higher levels are neglected)
  order=zeros(1,nlevel); %order is the number of discretized Gauss-Jacobi quadrature points in each level of reflection
  order(1)=5; %first level, set order =5, i.e., 5+1 Kelvin image charges for each source.
  order(2)=4; %second level, set order =4
